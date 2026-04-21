@@ -1,0 +1,284 @@
+{
+  "initial_state": {
+    "loyalty": 0,
+    "doubt": 0,
+    "fatigue": 0
+  },
+  "start_scene": "scene_1",
+  "scenes": [
+    {
+      "id": "scene_1",
+      "type": "system",
+      "text": "Добро пожаловать в Сбер.\n\nПозиция: коммуникационный дизайнер\nПодразделение: СберБизнес\n\nСистема обнаружила совпадения:\n— муж работает в Сбере\n— подруга работает в Сбере\n\nВероятность культурной интеграции: высокая.\n\nНачать интервью?",
+      "choices": [
+        {"text": "Начать", "next": "scene_2"},
+        {"text": "Закрыть вкладку", "next": "ending_quit"}
+      ]
+    },
+    {
+      "id": "scene_2",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Соня, привет.\n\nЯ вижу, у тебя был перерыв в работе.\nРасскажешь, с чем это связано?",
+      "choices": [
+        {
+          "text": "Честно объяснить",
+          "effects": {"loyalty": 1},
+          "next": "scene_3"
+        },
+        {
+          "text": "Уклониться",
+          "effects": {"doubt": 1},
+          "next": "scene_3"
+        },
+        {
+          "text": "Спросить, критично ли это",
+          "effects": {"fatigue": 1},
+          "next": "scene_3"
+        }
+      ]
+    },
+    {
+      "id": "scene_3",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Понятно.\n\nУ нас много задач:\n— презентации\n— иллюстрации\n— внутренние коммуникации\n\nТы готова быстро адаптироваться под разные стили?",
+      "choices": [
+        {
+          "text": "Да, конечно",
+          "effects": {"loyalty": 1},
+          "next": "scene_4"
+        },
+        {
+          "text": "Зависит от задачи",
+          "effects": {"doubt": 1},
+          "next": "scene_4"
+        },
+        {
+          "text": "Предпочитаю свой стиль",
+          "effects": {"doubt": 2},
+          "next": "scene_4b"
+        }
+      ]
+    },
+    {
+      "id": "scene_4",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Отлично.\n\nКак ты работаешь с правками?",
+      "choices": [
+        {
+          "text": "Спокойно принимаю",
+          "effects": {"loyalty": 2},
+          "next": "scene_5"
+        },
+        {
+          "text": "Иногда спорю",
+          "effects": {"doubt": 1},
+          "next": "scene_5"
+        },
+        {
+          "text": "Правки — это часть процесса",
+          "effects": {"loyalty": 1},
+          "next": "scene_5"
+        }
+      ]
+    },
+    {
+      "id": "scene_4b",
+      "type": "system",
+      "text": "Отклонение от бренд-парадигмы обнаружено.",
+      "choices": [
+        {
+          "text": "Продолжить",
+          "effects": {"fatigue": 1},
+          "next": "scene_5"
+        }
+      ]
+    },
+    {
+      "id": "scene_5",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Сделай слайд:\n\n«Рост СберБизнеса»\n\nОн должен быть:\n— строгим\n— эмоциональным\n— минималистичным\n— продающим\n\nКак решишь?",
+      "choices": [
+        {
+          "text": "Типографика",
+          "next": "scene_6"
+        },
+        {
+          "text": "Графики",
+          "next": "scene_6"
+        },
+        {
+          "text": "Цвет и композиция",
+          "next": "scene_6"
+        }
+      ]
+    },
+    {
+      "id": "scene_6",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Как визуально показать доверие?",
+      "choices": [
+        {
+          "text": "Зеленый цвет",
+          "effects": {"loyalty": 2},
+          "next": "scene_7"
+        },
+        {
+          "text": "Композиция",
+          "next": "scene_7"
+        },
+        {
+          "text": "Это абстракция",
+          "effects": {"doubt": 1},
+          "next": "scene_7b"
+        }
+      ]
+    },
+    {
+      "id": "scene_7",
+      "type": "system",
+      "text": "Анализ...\n\nСовпадение с корпоративной моделью: 82%\n\nЗеленый подтверждён.",
+      "choices": [
+        {
+          "text": "Продолжить",
+          "next": "scene_8"
+        }
+      ]
+    },
+    {
+      "id": "scene_7b",
+      "type": "system",
+      "text": "Сомнение зафиксировано.\n\nСоня пытается интерпретировать задачу.",
+      "choices": [
+        {
+          "text": "Продолжить",
+          "effects": {"fatigue": 1},
+          "next": "scene_8"
+        }
+      ]
+    },
+    {
+      "id": "scene_8",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Ты знаешь, что твой муж уже прошёл этот этап?",
+      "choices": [
+        {
+          "text": "Что это значит?",
+          "effects": {"doubt": 2},
+          "next": "scene_9"
+        },
+        {
+          "text": "Хорошо",
+          "effects": {"loyalty": 1},
+          "next": "scene_9"
+        },
+        {
+          "text": "Это шутка?",
+          "effects": {"doubt": 1},
+          "next": "scene_9"
+        }
+      ]
+    },
+    {
+      "id": "scene_9",
+      "type": "system",
+      "text": "Все сотрудники Сбера связаны.\n\nТы уже почти внутри.",
+      "choices": [
+        {
+          "text": "Мне это не нравится",
+          "effects": {"doubt": 2},
+          "next": "scene_10"
+        },
+        {
+          "text": "Продолжить",
+          "effects": {"loyalty": 1},
+          "next": "scene_10"
+        }
+      ]
+    },
+    {
+      "id": "scene_10",
+      "type": "dialogue",
+      "speaker": "Интервьюер",
+      "text": "Финальное задание:\n\nСделай дизайн по гайдам.\n\nГайды:\n— меняются\n— противоречат\n— недоступны",
+      "choices": [
+        {
+          "text": "Это невозможно",
+          "effects": {"doubt": 2},
+          "next": "scene_11"
+        },
+        {
+          "text": "Попробовать",
+          "effects": {"loyalty": 2},
+          "next": "scene_11"
+        },
+        {
+          "text": "Спросить уточнения",
+          "effects": {"fatigue": 1},
+          "next": "scene_11"
+        }
+      ]
+    },
+    {
+      "id": "scene_11",
+      "type": "system",
+      "text": "Обработка кандидата...",
+      "choices": [
+        {
+          "text": "Ждать",
+          "next": "scene_final"
+        }
+      ]
+    },
+    {
+      "id": "scene_final",
+      "type": "conditional",
+      "conditions": [
+        {
+          "if": "loyalty >= 5",
+          "next": "ending_accept"
+        },
+        {
+          "if": "doubt >= 5",
+          "next": "ending_reject"
+        },
+        {
+          "if": "fatigue >= 3",
+          "next": "ending_burnout"
+        }
+      ],
+      "default": "ending_loop"
+    },
+
+    {
+      "id": "ending_accept",
+      "type": "ending",
+      "text": "Поздравляем.\n\nСоня интегрирована.\n\nТеперь она — часть визуальной системы Сбера.\n\nЗеленый выбран за неё."
+    },
+    {
+      "id": "ending_reject",
+      "type": "ending",
+      "text": "Вы не подходите.\n\nВы слишком думаете.\n\nСпасибо за интерес к Сберу."
+    },
+    {
+      "id": "ending_burnout",
+      "type": "ending",
+      "text": "Соня устала.\n\nСистема продолжает задавать задачи.\n\nОтвета больше нет."
+    },
+    {
+      "id": "ending_loop",
+      "type": "ending",
+      "text": "Интервью начинается заново.\n\n— Соня, расскажи о себе."
+    },
+    {
+      "id": "ending_quit",
+      "type": "ending",
+      "text": "Вы закрыли вкладку.\n\nНо собеседование продолжается."
+    }
+  ]
+}
