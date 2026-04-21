@@ -22,7 +22,11 @@
       "Bash(python3.12 -c ' *)",
       "Bash(curl -s -X POST http://localhost:8002/api/scenes/scene_2/choose -H 'Content-Type: application/json' -d '{\"choice_id\":\"c0\",\"state\":{\"loyalty\":0,\"doubt\":0,\"fatigue\":0}}')",
       "Bash(curl -s -X POST http://localhost:8002/api/scenes/scene_11/choose -H 'Content-Type: application/json' -d '{\"choice_id\":\"c0\",\"state\":{\"loyalty\":6,\"doubt\":0,\"fatigue\":0}}')",
-      "Bash(curl -s -X POST http://localhost:8002/api/scenes/scene_11/choose -H 'Content-Type: application/json' -d '{\"choice_id\":\"c0\",\"state\":{\"loyalty\":0,\"doubt\":5,\"fatigue\":0}}')"
+      "Bash(curl -s -X POST http://localhost:8002/api/scenes/scene_11/choose -H 'Content-Type: application/json' -d '{\"choice_id\":\"c0\",\"state\":{\"loyalty\":0,\"doubt\":5,\"fatigue\":0}}')",
+      "Bash(PYTHONPATH=. .venv/bin/uvicorn app.main:app --port 8000 --log-level info)",
+      "Bash(curl -s http://localhost:8000/api/health)",
+      "Bash(PYTHONPATH=. .venv/bin/uvicorn app.main:app --port 8001 --log-level warning)",
+      "Bash(curl -s http://localhost:5173)"
     ]
   }
 }
